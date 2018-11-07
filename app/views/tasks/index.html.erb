@@ -2,8 +2,17 @@
 
   <% @tasks.each do |task| %>
     <% if task.completed == true %>
-       <i class="far fa-check-square"> <%= task.title %></i><br>
+      <i class="far fa-check-square">
+      <%= link_to task.title, task_path(task) %> </i>
+      <%= link_to "Delete this task", task_path(task), method: "delete" %>
+      <br>
     <% else %>
-      <i class="far fa-square"> <%= task.title %></i><br>
+      <i class="far fa-square">
+      <%= link_to task.title, task_path(task) %> </i>
+      <%= link_to "Delete this task", task_path(task), method: "delete" %>
+      <br>
     <% end %>
   <% end %>
+
+
+<i class="fas fa-plus"> <%= link_to "Add a new task", new_task_path %></i>
